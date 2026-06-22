@@ -13,7 +13,6 @@ greenlet==3.5.2
 ipykernel==7.3.0
 ipython==9.14.1
 ipython_pygments_lexers==1.1.1
-ipywidgets==8.1.8
 jedi==0.20.0
 joblib==1.5.3
 jupyter_client==8.9.1
@@ -55,3 +54,4 @@ typing_extensions==4.15.0
 tzdata==2026.2
 wcwidth==0.8.1
 widgetsnbextension==4.0.15
+xgboost==3.3.0
