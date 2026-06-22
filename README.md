@@ -34,6 +34,28 @@ El proyecto se compone de dos fases principales divididas en notebooks:
 * **Optimización:** `optuna`
 * **Persistencia del modelo:** `joblib`
 
+## 🔍 Análisis de las Variables Relevantes
+
+El proyecto aborda la relevancia de las variables desde dos perspectivas fundamentales: el análisis estadístico clásico en la fase de exploración (EDA) y la importancia algorítmica tras el entrenamiento del modelo.
+
+### 1. Análisis Estadístico (Prueba de Chi-cuadrado)
+Dado que el dataset está compuesto íntegramente por variables cualitativas (categóricas), durante la fase de EDA (`01_limpieza_eda.ipynb`) se utilizaron **tablas de contingencia** y la **prueba de Chi-cuadrado de independencia ($\chi^2$)** para medir la asociación entre cada característica morfológica y la variable objetivo (`class`).
+
+* **El Olor (`odor`):** Resultó ser la variable con el mayor nivel de asociación estadística. El análisis demostró patrones casi perfectos: por ejemplo, las setas con olor a almendra (`a`) o anise (`l`) son sistemáticamente comestibles, mientras que olores pungentes (`p`), fétidos (`f`) o a pescado (`y`) correlacionan directamente con setas venenosas.
+* **Color de las Láminas (`gill-color`):** Mostró también una altísima dependencia, donde ciertos colores (como el buff/crema `b`) alertan casi siempre de toxicidad.
+
+### 2. Importancia de Características del Modelo (Feature Importance)
+En el notebook de modelado (`02_modelo_clasificacion.ipynb`), tras entrenar el clasificador final **XGBoost** y aplicar *One-Hot Encoding*, se extrajo la importancia de las variables basada en la ganancia del modelo. 
+
+Al agrupar las categorías codificadas de vuelta a sus variables originales, el top de características más influyentes para el modelo coincide plenamente con los hallazgos estadísticos previos:
+
+1. **`odor` (Olor):** Concentra la mayor parte del peso predictivo del modelo.
+2. **`gill-size` (Tamaño de las láminas):** Las láminas estrechas (`n`) presentan una alta frecuencia en ejemplares venenosos.
+3. **`gill-color` (Color de las láminas):** Actúa como un fuerte validador secundario para el algoritmo.
+4. **`spore-print-color` (Color de la espora):** Aporta información crucial en casos donde el olor es ausente o neutro.
+
+> 💡 **Conclusión del Análisis:** No es necesario evaluar la totalidad de los caracteres morfológicos de una seta para determinar su peligro de forma inequívoca; basta con analizar un subconjunto crítico liderado de forma indiscutible por el **olor**.
+
 ---
 
 ## 📈 Resultados Obtenidos
@@ -83,27 +105,6 @@ El modelo final demostró un desempeño impecable identificando de manera inequ�
    macro avg       1.00      1.00      1.00      1625
 weighted avg       1.00      1.00      1.00      1625 
 ```
-## 🔍 Análisis de las Variables Relevantes
-
-El proyecto aborda la relevancia de las variables desde dos perspectivas fundamentales: el análisis estadístico clásico en la fase de exploración (EDA) y la importancia algorítmica tras el entrenamiento del modelo.
-
-### 1. Análisis Estadístico (Prueba de Chi-cuadrado)
-Dado que el dataset está compuesto íntegramente por variables cualitativas (categóricas), durante la fase de EDA (`01_limpieza_eda.ipynb`) se utilizaron **tablas de contingencia** y la **prueba de Chi-cuadrado de independencia ($\chi^2$)** para medir la asociación entre cada característica morfológica y la variable objetivo (`class`).
-
-* **El Olor (`odor`):** Resultó ser la variable con el mayor nivel de asociación estadística. El análisis demostró patrones casi perfectos: por ejemplo, las setas con olor a almendra (`a`) o anise (`l`) son sistemáticamente comestibles, mientras que olores pungentes (`p`), fétidos (`f`) o a pescado (`y`) correlacionan directamente con setas venenosas.
-* **Color de las Láminas (`gill-color`):** Mostró también una altísima dependencia, donde ciertos colores (como el buff/crema `b`) alertan casi siempre de toxicidad.
-
-### 2. Importancia de Características del Modelo (Feature Importance)
-En el notebook de modelado (`02_modelo_clasificacion.ipynb`), tras entrenar el clasificador final **XGBoost** y aplicar *One-Hot Encoding*, se extrajo la importancia de las variables basada en la ganancia del modelo. 
-
-Al agrupar las categorías codificadas de vuelta a sus variables originales, el top de características más influyentes para el modelo coincide plenamente con los hallazgos estadísticos previos:
-
-1. **`odor` (Olor):** Concentra la mayor parte del peso predictivo del modelo.
-2. **`gill-size` (Tamaño de las láminas):** Las láminas estrechas (`n`) presentan una alta frecuencia en ejemplares venenosos.
-3. **`gill-color` (Color de las láminas):** Actúa como un fuerte validador secundario para el algoritmo.
-4. **`spore-print-color` (Color de la espora):** Aporta información crucial en casos donde el olor es ausente o neutro.
-
-> 💡 **Conclusión del Análisis:** No es necesario evaluar la totalidad de los caracteres morfológicos de una seta para determinar su peligro de forma inequívoca; basta con analizar un subconjunto crítico liderado de forma indiscutible por el **olor**.
 
 ## 💡 Conclusión
 
