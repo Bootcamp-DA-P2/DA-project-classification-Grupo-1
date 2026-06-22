@@ -134,12 +134,33 @@ Utilizar el archivo:
 ```text
 agaricus-lepiota.data
 ```
- 
-## 2.   Instala las dependencias requeridas:
+---
+## 2. Crear un entorno virtual
+
+```bash
+python -m venv venv
+```
+
+### Activación
+
+**Windows**
+
+```bash
+venv\Scripts\activate
+```
+
+**Linux / macOS**
+
+```bash
+source venv/bin/activate
+```
+---
+## 3.   Instala las dependencias requeridas:
 ```bash
     pip install -r requirements.txt
 ```
-## 3. Generar el dataset procesado
+---
+## 4. Generar el dataset procesado
 
 Ejecutar:
 
@@ -152,7 +173,8 @@ Se generará:
 ```text
 mushrooms_clean.csv
 ```
-## 4. Entrenar los modelos
+---
+## 5. Entrenar los modelos
 
 Ejecutar:
 
@@ -171,9 +193,11 @@ Con los modelos serializados:
 ```text
 best_xgboost_model.pkl
 ```
-## 5. Ejecuta secuencialmente los notebooks 01_limpieza_eda.ipynb y 02_modelo_clasificacion.ipynb.
-   
-## 6. Ejecutar la aplicación
+---
+## 6. Ejecuta secuencialmente los notebooks 01_limpieza_eda.ipynb y 02_modelo_clasificacion.ipynb.
+
+---   
+## 7. Ejecutar la aplicación
 
 ```bash
 streamlit run app/app.py
