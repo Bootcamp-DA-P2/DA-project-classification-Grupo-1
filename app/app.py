@@ -18,7 +18,7 @@ st.markdown("""
 
 @st.cache_resource
 def load_pipeline():
-    return joblib.load(Path("models/pipeline.pkl"))
+    return joblib.load(Path("models/best_xgboost_model.pkl"))
 
 pipeline = load_pipeline()
 columnas_esperadas = pipeline.feature_names_in_
