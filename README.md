@@ -117,7 +117,7 @@ Este proyecto demuestra con éxito la aplicación de un flujo de trabajo de Mach
 ---
 ## 🚀 Cómo Ejecutar el Proyecto
 
-1. Descargar el Dataset
+## 1. Descargar el Dataset
 
 Crear la carpeta:
 
@@ -135,11 +135,11 @@ Utilizar el archivo:
 agaricus-lepiota.data
 ```
  
-2.   Instala las dependencias requeridas:
+## 2.   Instala las dependencias requeridas:
 ```bash
     pip install -r requirements.txt
 ```
-3. Generar el dataset procesado
+## 3. Generar el dataset procesado
 
 Ejecutar:
 
@@ -152,7 +152,7 @@ Se generará:
 ```text
 mushrooms_clean.csv
 ```
-4. Entrenar los modelos
+## 4. Entrenar los modelos
 
 Ejecutar:
 
@@ -171,13 +171,40 @@ Con los modelos serializados:
 ```text
 best_xgboost_model.pkl
 ```
-5. Ejecuta secuencialmente los notebooks 01_limpieza_eda.ipynb y 02_modelo_clasificacion.ipynb.
+## 5. Ejecuta secuencialmente los notebooks 01_limpieza_eda.ipynb y 02_modelo_clasificacion.ipynb.
    
-6. Ejecutar la aplicación
+## 6. Ejecutar la aplicación
 
 ```bash
 streamlit run app/app.py
 ```
+---
+# 📁 Estructura del Proyecto
+
+```text
+.
+├── app/
+│   └── app.py
+│
+├── data/
+│   ├── agaricus-lepiota.data
+│   └── mushrooms_clean.csv
+├── models/
+│   ├ best_xgboost_model.pkl
+│  
+├── notebooks/
+│   ├── 01_limpieza_eda.ipynb 
+│   └── 02_modelo_clasificacion.ipynb.
+│
+├── requirements.txt
+└── README.md
+```
+---
+## 📋 Gestión del Proyecto
+
+Para la organización y seguimiento del trabajo se ha utilizado un tablero Kanban, permitiendo gestionar tareas, asignar responsabilidades y monitorizar el avance del proyecto de forma colaborativa.
+
+🔗 [Tablero Kanban del proyecto] (https://github.com/orgs/Bootcamp-DA-P2/projects/38)
 
 ---
 # 👥 Autores
