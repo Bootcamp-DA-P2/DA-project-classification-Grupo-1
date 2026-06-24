@@ -117,7 +117,35 @@ Este proyecto demuestra con éxito la aplicación de un flujo de trabajo de Mach
 ---
 ## 🚀 Cómo Ejecutar el Proyecto
 
-## 1. Descargar el Dataset
+## 1. Clonar el repositorio
+
+Clona el proyecto en tu máquina local:
+
+```bash
+git clone https://github.com/Bootcamp-DA-P2/DA-project-classification-Grupo-1.git
+```
+
+Accede a la carpeta del proyecto:
+
+```bash
+cd DA-project-classification-Grupo-1
+```
+
+## 2. Cambiar a la rama principal
+
+Asegúrate de estar trabajando en la rama principal del proyecto:
+
+```bash
+git switch main
+```
+
+o alternativamente:
+
+```bash
+git checkout main
+```
+
+## 3. Descargar el Dataset
 
 Crear la carpeta:
 
@@ -134,8 +162,11 @@ Utilizar el archivo:
 ```text
 agaricus-lepiota.data
 ```
+
+Una vez descargado, el archivo debe colocarse dentro de la carpeta data/ del proyecto para poder ser cargado correctamente desde el código.
+
 ---
-## 2. Crear un entorno virtual
+## 4. Crear un entorno virtual
 
 ```bash
 python -m venv venv
@@ -155,12 +186,12 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 ---
-## 3.   Instala las dependencias requeridas:
+## 5.   Instala las dependencias requeridas:
 ```bash
     pip install -r requirements.txt
 ```
 ---
-## 4. Generar el dataset procesado
+## 6. Generar el dataset procesado
 
 Ejecutar:
 
@@ -174,7 +205,7 @@ Se generará:
 mushrooms_clean.csv
 ```
 ---
-## 5. Entrenar los modelos
+## 7. Entrenar los modelos
 
 Ejecutar:
 
@@ -194,10 +225,10 @@ Con los modelos serializados:
 best_xgboost_model.pkl
 ```
 ---
-## 6. Ejecuta secuencialmente los notebooks 01_limpieza_eda.ipynb y 02_modelo_clasificacion.ipynb.
+## 8. Ejecuta secuencialmente los notebooks 01_limpieza_eda.ipynb y 02_modelo_clasificacion.ipynb.
 
 ---   
-## 7. Ejecutar la aplicación
+## 9. Ejecutar la aplicación
 
 ```bash
 streamlit run app/app.py
@@ -224,13 +255,46 @@ streamlit run app/app.py
 └── README.md
 ```
 ---
+
+## 📊 Uso de dataset secundario (UCI - Secondary Mushroom Dataset)
+
+Se ha utilizado un dataset secundario procedente del repositorio UCI Machine Learning Repository (Secondary Mushroom Dataset), disponible en:
+[Secondary Mushroom Dataset](https://archive.ics.uci.edu/dataset/848/secondary+mushroom+dataset)
+
+Este dataset contiene una versión ampliada y más actual del conjunto clásico de setas, con aproximadamente 61.000 registros.
+
+El archivo utilizado dentro del dataset es:
+
+- `secondary_data.csv`
+
+Este archivo debe colocarse en la carpeta `data` del proyecto para su correcta ejecución.
+
+El trabajo con este dataset se ha realizado en la rama `feature/mushrooms-extended` del repositorio, donde se ha utilizado de forma experimental para comparar su comportamiento frente al dataset principal.
+
+En dicha rama se han ejecutado los notebooks `01_limpieza_eda.ipynb`, que genera (`mushrooms_clean_secondary.csv`) en la carepta `data`, y `02_modelo_clasificacion`, generando un modelo optimizado mediante Optuna (`best_random_forest_optuna.pkl`), el cual se guarda en la carpeta `models`.
+
+Sin embargo, este modelo no se ha incluido en la aplicación final, ya que su rendimiento es muy similar al modelo principal, pero con un mayor coste computacional debido al tamaño del dataset.
+
+Por este motivo, se ha priorizado el modelo más eficiente para el despliegue final del proyecto.
+
+--- 
+
 ## 📋 Gestión del Proyecto
 
 Para la organización y seguimiento del trabajo se ha utilizado un tablero Kanban, permitiendo gestionar tareas, asignar responsabilidades y monitorizar el avance del proyecto de forma colaborativa.
 
-🔗 [Tablero Kanban del proyecto] (https://github.com/orgs/Bootcamp-DA-P2/projects/38)
+🔗 [Tablero Kanban del proyecto](https://github.com/orgs/Bootcamp-DA-P2/projects/38)
 
 ---
+
+## 🎬 Presentación del proyecto
+
+La presentación visual del proyecto se ha realizado mediante Canva, donde se resume el objetivo, el proceso de desarrollo y los resultados del modelo de clasificación de setas.
+
+📎 [Ver presentación del proyecto](https://canva.link/y9tcylu0roxejxw)
+
+---
+
 # 👥 Autores
 
 * Alejandra Duque García
