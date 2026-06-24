@@ -63,11 +63,11 @@ etiquetas_es = {
 # --- 3. BARRA LATERAL ---
 with st.sidebar:
     st.title("🍄 Menú Principal")
-    opcion = st.radio("Navegación:", ["🚀 Clasificador", "📊 Análisis"])
+    opcion = st.radio("Navegación:", ["🍄 Clasificador", "📊 Análisis"])
 
 # --- 4. LÓGICA DE PÁGINAS ---
-if opcion == "🚀 Clasificador":
-    st.title("🚀 Clasificador de Setas")
+if opcion == "🍄 Clasificador":
+    st.title("🍄 Clasificador de Setas")
     col1, col2 = st.columns(2)
     datos_usuario = {}
     
